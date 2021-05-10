@@ -1,0 +1,23 @@
+<div class="container">
+
+    <h2>El Calamar</h2>
+
+    <ngb-accordion [closeOthers]="true">
+        <ngb-panel *ngFor="let seccion of carta.secciones" id="acc-{{seccion.id}}" >
+            <ng-template ngbPanelTitle>
+				<img src="{{seccion.imagen}}"/>
+			</ng-template>
+            <ng-template ngbPanelContent> 
+                <ul *ngFor="let producto of seccion.productos">
+                    <li>
+                        <p>{{producto.descElemento}}</p>
+                        <ul>
+                            <li *ngIf="producto.imp1 > 0">{{producto.imp1}} €</li>
+                            <li *ngIf="producto.imp2 > 0">{{producto.imp2}} €</li>
+                        </ul>
+                    </li>
+                </ul>
+            </ng-template>
+        </ngb-panel>
+    </ngb-accordion>
+</div>
